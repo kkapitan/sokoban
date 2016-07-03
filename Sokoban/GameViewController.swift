@@ -13,7 +13,8 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        readLevel()
+        
         if let scene = GameScene(fileNamed:"GameScene") {
             // Configure the view.
             let skView = self.view as! SKView
@@ -30,24 +31,19 @@ class GameViewController: UIViewController {
         }
     }
 
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
-
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return .AllButUpsideDown
-        } else {
-            return .All
+    func readLevel() {
+        
+        let jsonPathOptional = NSBundle.mainBundle().pathForResource("level", ofType: "json")
+        guard let jsonPath = jsonPathOptional, jsonData = NSData(contentsOfFile: jsonPath) else { return }
+        
+        do {
+            let json =  try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments) as? NSDictionary
+            let levelData = JSONToLevelDataAdapter().adapt(json!)
+            let board = LevelDataToBoardAdapter().adapt(levelData!)
+            print(board!)
+            
+        } catch {
+            return
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
-
-    override func prefersStatusBarHidden() -> Bool {
-        return true
     }
 }
