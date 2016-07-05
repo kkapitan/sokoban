@@ -20,7 +20,6 @@ protocol TransitionContext : class {
 class NodeTransitionContext : TransitionContext {
     
     var level: Level
-
     var boardNode: BoardNode
     
     func animateMovement(from: GridPoint, to: GridPoint, completion: () -> ()) {

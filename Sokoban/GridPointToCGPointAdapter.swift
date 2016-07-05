@@ -22,9 +22,7 @@ struct GridPointToCGPointAdapter : TwoSideAdaptable {
     let board: Board
     
     func adapt(from: CGPoint) -> GridPoint? {
-        
-        let translation = CGPointMake(-tileSize/2, -tileSize/2)
-        let translatedPoint = from.translateBy(translation)
+        let translatedPoint = from
         
         let x = Int(translatedPoint.x / tileSize)
         let y = board.height - 1 - Int(translatedPoint.y / tileSize)

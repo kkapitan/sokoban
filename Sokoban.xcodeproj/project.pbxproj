@@ -18,6 +18,8 @@
 		024B23371D283F5D00C6435E /* PathFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024B23361D283F5D00C6435E /* PathFinder.swift */; };
 		0259ADB51D2B06DD00FB640D /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259ADB41D2B06DD00FB640D /* Level.swift */; };
 		0259ADB71D2B903400FB640D /* NodeIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259ADB61D2B903400FB640D /* NodeIdentifier.swift */; };
+		0259ADB91D2C29B200FB640D /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259ADB81D2C29B200FB640D /* GameViewModel.swift */; };
+		0259ADBC1D2C336600FB640D /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259ADBB1D2C336600FB640D /* GameManager.swift */; };
 		0263C46F1D2984D4007636A8 /* HeroMovementTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C46E1D2984D4007636A8 /* HeroMovementTransition.swift */; };
 		0263C4711D29850A007636A8 /* BoxStateTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C4701D29850A007636A8 /* BoxStateTransition.swift */; };
 		0263C4731D29853C007636A8 /* TransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C4721D29853C007636A8 /* TransitionContext.swift */; };
@@ -74,6 +76,8 @@
 		024B23361D283F5D00C6435E /* PathFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathFinder.swift; sourceTree = "<group>"; };
 		0259ADB41D2B06DD00FB640D /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		0259ADB61D2B903400FB640D /* NodeIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeIdentifier.swift; sourceTree = "<group>"; };
+		0259ADB81D2C29B200FB640D /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		0259ADBB1D2C336600FB640D /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		0263C46E1D2984D4007636A8 /* HeroMovementTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroMovementTransition.swift; sourceTree = "<group>"; };
 		0263C4701D29850A007636A8 /* BoxStateTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxStateTransition.swift; sourceTree = "<group>"; };
 		0263C4721D29853C007636A8 /* TransitionContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContext.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				02D4A2FF1D2708DD00A319B4 /* Resources */,
 				02D4A3021D27FFF200A319B4 /* Scenes */,
 				02151E351D25B62E0003C4E5 /* Views */,
+				0259ADBA1D2C32FE00FB640D /* ViewModel */,
 				02151E341D25B6180003C4E5 /* Controllers */,
 				02151E321D25B5DC0003C4E5 /* Helpers */,
 				0263C48F1D29886B007636A8 /* Nodes */,
@@ -193,6 +198,7 @@
 				02151E331D25B5ED0003C4E5 /* Extensions */,
 				024B23361D283F5D00C6435E /* PathFinder.swift */,
 				0263C4781D2985C0007636A8 /* UndoStack.swift */,
+				0259ADBB1D2C336600FB640D /* GameManager.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -218,6 +224,14 @@
 			children = (
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		0259ADBA1D2C32FE00FB640D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0259ADB81D2C29B200FB640D /* GameViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		0263C4761D298590007636A8 /* Engine */ = {
@@ -394,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0259ADB51D2B06DD00FB640D /* Level.swift in Sources */,
+				0259ADBC1D2C336600FB640D /* GameManager.swift in Sources */,
 				0263C4931D298F8A007636A8 /* HeroNode.swift in Sources */,
 				0263C4911D29887E007636A8 /* BoardNode.swift in Sources */,
 				02759BA91D26E7A700D223C9 /* GridPoint.swift in Sources */,
@@ -406,6 +421,7 @@
 				0263C4811D298624007636A8 /* BoxState.swift in Sources */,
 				02151E141D25B4670003C4E5 /* GameViewController.swift in Sources */,
 				0263C48C1D29870B007636A8 /* JSONToLevelDataAdapter.swift in Sources */,
+				0259ADB91D2C29B200FB640D /* GameViewModel.swift in Sources */,
 				02151E0E1D25B4670003C4E5 /* AppDelegate.swift in Sources */,
 				02759BAD1D27013200D223C9 /* LevelData.swift in Sources */,
 				0263C47D1D2985F9007636A8 /* GridType.swift in Sources */,
