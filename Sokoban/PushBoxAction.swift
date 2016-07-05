@@ -12,13 +12,11 @@ typealias Orientation = (position: GridPoint, direction: Direction)
 
 struct PushBoxAction : ReversibleActionType {
     
-    let board: Board
-    let hero: Hero
-    
+    let level: Level
     let boxPosition: GridPoint
     
     func applyAction() -> Transition? {
-        guard let field = board[boxPosition] where field.containsBox() else { return nil }
+        guard let field = level.board[boxPosition] where field.containsBox() else { return nil }
         
         let directions = Direction.allDirections()
         
@@ -26,27 +24,23 @@ struct PushBoxAction : ReversibleActionType {
             Orientation(position: $0.gridPointFollowingDirection(boxPosition), direction: $0.opositeDirection())
         })
         
-        guard let heroOrientation = possibleOrientations.filter({$0.position == hero.position}).first else { return nil }
+        guard let heroOrientation = possibleOrientations.filter({$0.position == level.hero.position}).first else { return nil }
         
         let newBoxPosition = heroOrientation.direction.gridPointFollowingDirection(boxPosition)
         
-        guard let newField = board[newBoxPosition] where newField.isMovementValid() else { return nil }
+        guard let newField = level.board[newBoxPosition] where newField.isMovementValid() else { return nil }
         
-        let preBoxState = BoxState(field: field)
-        let postBoxState = BoxState(field: newField)
+        let preBoxState = BoxState.currentState(field)
+        let postBoxState = BoxState.stateAfterMovingToField(newField)
         
-        let preStateTransition = PrePushBoxStateTransition(at: boxPosition,
-                                                           state: preBoxState)
+        let pushTransition = PushBoxTransition(boxPosition: boxPosition,
+                                               nextPosition: newBoxPosition)
         
-        let pushTransition = PushBoxTransition(heroPosition: heroOrientation.position,
-                                               boxPosition: boxPosition,
-                                               direction: heroOrientation.direction)
-        
-        let postStateTransition = PostPushBoxStateTransition(at: newBoxPosition,
-                                                             state: postBoxState)
+        let boxStateTransition = BoxStateTransition(boxPosition: boxPosition, nextPosition: newBoxPosition, fromState: preBoxState, toState: postBoxState)
         
         
-        return ChainedTransition(transitions: [preStateTransition, pushTransition, postStateTransition])
+        
+        return ChainedTransition(transitions: [pushTransition, boxStateTransition])
     }
     
     func reverseAction() -> Transition? {

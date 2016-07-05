@@ -10,40 +10,63 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
-
+    private(set) var level: Level?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        readLevel()
         
-        if let scene = GameScene(fileNamed:"GameScene") {
-            // Configure the view.
-            let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
+        let skView = self.view as! SKView
+        
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.ignoresSiblingOrder = true
+        
+        let scene = GameScene(size: self.view.bounds.size)
+        scene.scaleMode = .AspectFill
+        skView.presentScene(scene)
+        
+        if let levelNode = readLevel() {
+            scene.addChild(levelNode)
             
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
+            guard let lvl = level else { return }
             
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
+            let context = NodeTransitionContext(level: lvl, boardNode: levelNode)
             
-            skView.presentScene(scene)
+            HeroMovementAction(level: lvl, to: GridPoint(x:1,y:1)).applyAction()?.apply(context, animated: true, completion: { (context) in
+                print(context.level)
+                PushBoxAction(level: context.level, boxPosition: GridPoint(x:2, y:1)).applyAction()?.apply(context, animated: true, completion: { (context) in
+                    print(context.level)
+                    PushBoxAction(level: context.level, boxPosition: GridPoint(x:3, y:1)).applyAction()?.apply(context, animated: true, completion: { (context) in
+                        print(context.level)
+                        PushBoxAction(level: context.level, boxPosition: GridPoint(x:4, y:1)).applyAction()?.apply(context, animated: true, completion: { (context) in
+                            print(context.level)
+                        })
+                    })
+
+                })
+            })
         }
+        
     }
 
-    func readLevel() {
+    func readLevel() -> BoardNode? {
         
         let jsonPathOptional = NSBundle.mainBundle().pathForResource("level", ofType: "json")
-        guard let jsonPath = jsonPathOptional, jsonData = NSData(contentsOfFile: jsonPath) else { return }
+        guard let jsonPath = jsonPathOptional, jsonData = NSData(contentsOfFile: jsonPath) else { return nil }
         
         do {
             let json =  try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments) as? NSDictionary
             let levelData = JSONToLevelDataAdapter().adapt(json!)
-            let board = LevelDataToBoardAdapter().adapt(levelData!)
-            print(board!)
+            let levelOptional = LevelDataToLevelAdapter().adapt(levelData!)
             
+            guard let level = levelOptional else { return nil }
+        
+            self.level = level
+            print(level)
+            
+            return BoardNode(level: level)
         } catch {
-            return
+            return nil
         }
     }
 }

@@ -13,7 +13,7 @@ struct HeroMovementTransition : StateTransition {
     let to: GridPoint
     
     func changeState(context: TransitionContext) -> TransitionContext {
-        context.hero.position = to
+        context.level.hero.position = to
         
         return context
     }

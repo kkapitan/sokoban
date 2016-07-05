@@ -27,3 +27,9 @@ extension GridPoint : Hashable {
         return (hashX + hashY) * (hashX + hashY + 1) / 2 + hashY
     }
 }
+
+extension GridPoint : CustomStringConvertible {
+    var description: String {
+        return "(\(self.x),\(self.y))"
+    }
+}

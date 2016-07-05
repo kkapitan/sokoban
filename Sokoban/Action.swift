@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ActionType {
-    var board: Board { get }
+    var level: Level { get }
     
     func applyAction() -> Transition?
 }

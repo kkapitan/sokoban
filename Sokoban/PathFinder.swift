@@ -22,6 +22,7 @@ struct PathFinder {
         
         //Initialize array containing points to visit in queue order
         var queue = [from]
+        parent[from] = from
         
         //Repeat until queue is empty
         while let point = queue.first {
@@ -51,8 +52,8 @@ struct PathFinder {
                 var mutablePoint = to
                 var path = [to]
                 
-                //Reconstruct path by moving upwards BFS tree until reaching the root (parent == nil)
-                while let parentPoint = parent[mutablePoint] {
+                //Reconstruct path by moving upwards BFS tree until reaching the root (parent == self)
+                while let parentPoint = parent[mutablePoint] where parentPoint != mutablePoint {
                     path.append(parentPoint)
                     mutablePoint = parentPoint
                 }

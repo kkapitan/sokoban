@@ -16,6 +16,8 @@
 		02151E271D25B4670003C4E5 /* SokobanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02151E261D25B4670003C4E5 /* SokobanTests.swift */; };
 		02151E371D25B6B10003C4E5 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02151E361D25B6B10003C4E5 /* Hero.swift */; };
 		024B23371D283F5D00C6435E /* PathFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024B23361D283F5D00C6435E /* PathFinder.swift */; };
+		0259ADB51D2B06DD00FB640D /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259ADB41D2B06DD00FB640D /* Level.swift */; };
+		0259ADB71D2B903400FB640D /* NodeIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259ADB61D2B903400FB640D /* NodeIdentifier.swift */; };
 		0263C46F1D2984D4007636A8 /* HeroMovementTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C46E1D2984D4007636A8 /* HeroMovementTransition.swift */; };
 		0263C4711D29850A007636A8 /* BoxStateTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C4701D29850A007636A8 /* BoxStateTransition.swift */; };
 		0263C4731D29853C007636A8 /* TransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C4721D29853C007636A8 /* TransitionContext.swift */; };
@@ -30,7 +32,12 @@
 		0263C4871D298697007636A8 /* PushBoxAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C4861D298697007636A8 /* PushBoxAction.swift */; };
 		0263C48A1D2986F3007636A8 /* LevelDataToBoardAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C4891D2986F3007636A8 /* LevelDataToBoardAdapter.swift */; };
 		0263C48C1D29870B007636A8 /* JSONToLevelDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C48B1D29870B007636A8 /* JSONToLevelDataAdapter.swift */; };
-		0263C48E1D29873E007636A8 /* BoardToNodeAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C48D1D29873E007636A8 /* BoardToNodeAdapter.swift */; };
+		0263C48E1D29873E007636A8 /* GridPointToCGPointAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C48D1D29873E007636A8 /* GridPointToCGPointAdapter.swift */; };
+		0263C4911D29887E007636A8 /* BoardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C4901D29887E007636A8 /* BoardNode.swift */; };
+		0263C4931D298F8A007636A8 /* HeroNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C4921D298F8A007636A8 /* HeroNode.swift */; };
+		0263C4951D298F9F007636A8 /* BoxNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C4941D298F9F007636A8 /* BoxNode.swift */; };
+		0263C4971D298FAA007636A8 /* DropzoneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C4961D298FAA007636A8 /* DropzoneNode.swift */; };
+		0263C49D1D299AF9007636A8 /* WallNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263C49C1D299AF9007636A8 /* WallNode.swift */; };
 		02759BA11D26E64000D223C9 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02759BA01D26E64000D223C9 /* Transition.swift */; };
 		02759BA31D26E68B00D223C9 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02759BA21D26E68B00D223C9 /* Board.swift */; };
 		02759BA51D26E6A600D223C9 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02759BA41D26E6A600D223C9 /* Action.swift */; };
@@ -65,6 +72,8 @@
 		02151E281D25B4670003C4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02151E361D25B6B10003C4E5 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		024B23361D283F5D00C6435E /* PathFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathFinder.swift; sourceTree = "<group>"; };
+		0259ADB41D2B06DD00FB640D /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		0259ADB61D2B903400FB640D /* NodeIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeIdentifier.swift; sourceTree = "<group>"; };
 		0263C46E1D2984D4007636A8 /* HeroMovementTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroMovementTransition.swift; sourceTree = "<group>"; };
 		0263C4701D29850A007636A8 /* BoxStateTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxStateTransition.swift; sourceTree = "<group>"; };
 		0263C4721D29853C007636A8 /* TransitionContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContext.swift; sourceTree = "<group>"; };
@@ -79,7 +88,12 @@
 		0263C4861D298697007636A8 /* PushBoxAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushBoxAction.swift; sourceTree = "<group>"; };
 		0263C4891D2986F3007636A8 /* LevelDataToBoardAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelDataToBoardAdapter.swift; sourceTree = "<group>"; };
 		0263C48B1D29870B007636A8 /* JSONToLevelDataAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONToLevelDataAdapter.swift; sourceTree = "<group>"; };
-		0263C48D1D29873E007636A8 /* BoardToNodeAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardToNodeAdapter.swift; sourceTree = "<group>"; };
+		0263C48D1D29873E007636A8 /* GridPointToCGPointAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPointToCGPointAdapter.swift; sourceTree = "<group>"; };
+		0263C4901D29887E007636A8 /* BoardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardNode.swift; sourceTree = "<group>"; };
+		0263C4921D298F8A007636A8 /* HeroNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroNode.swift; sourceTree = "<group>"; };
+		0263C4941D298F9F007636A8 /* BoxNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxNode.swift; sourceTree = "<group>"; };
+		0263C4961D298FAA007636A8 /* DropzoneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropzoneNode.swift; sourceTree = "<group>"; };
+		0263C49C1D299AF9007636A8 /* WallNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallNode.swift; sourceTree = "<group>"; };
 		02759BA01D26E64000D223C9 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		02759BA21D26E68B00D223C9 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		02759BA41D26E6A600D223C9 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
@@ -134,6 +148,7 @@
 				02151E351D25B62E0003C4E5 /* Views */,
 				02151E341D25B6180003C4E5 /* Controllers */,
 				02151E321D25B5DC0003C4E5 /* Helpers */,
+				0263C48F1D29886B007636A8 /* Nodes */,
 				0263C4761D298590007636A8 /* Engine */,
 				02151E311D25B5D60003C4E5 /* Model */,
 				02151E0D1D25B4670003C4E5 /* AppDelegate.swift */,
@@ -165,6 +180,8 @@
 				0263C47C1D2985F9007636A8 /* GridType.swift */,
 				0263C47E1D298612007636A8 /* Field.swift */,
 				0263C4801D298624007636A8 /* BoxState.swift */,
+				0259ADB41D2B06DD00FB640D /* Level.swift */,
+				0259ADB61D2B903400FB640D /* NodeIdentifier.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -228,9 +245,21 @@
 				02759BAA1D26EB2700D223C9 /* Adapter.swift */,
 				0263C4891D2986F3007636A8 /* LevelDataToBoardAdapter.swift */,
 				0263C48B1D29870B007636A8 /* JSONToLevelDataAdapter.swift */,
-				0263C48D1D29873E007636A8 /* BoardToNodeAdapter.swift */,
+				0263C48D1D29873E007636A8 /* GridPointToCGPointAdapter.swift */,
 			);
 			name = Adapters;
+			sourceTree = "<group>";
+		};
+		0263C48F1D29886B007636A8 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				0263C4901D29887E007636A8 /* BoardNode.swift */,
+				0263C49C1D299AF9007636A8 /* WallNode.swift */,
+				0263C4921D298F8A007636A8 /* HeroNode.swift */,
+				0263C4941D298F9F007636A8 /* BoxNode.swift */,
+				0263C4961D298FAA007636A8 /* DropzoneNode.swift */,
+			);
+			name = Nodes;
 			sourceTree = "<group>";
 		};
 		02759B9F1D26E63200D223C9 /* Transitions */ = {
@@ -364,6 +393,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0259ADB51D2B06DD00FB640D /* Level.swift in Sources */,
+				0263C4931D298F8A007636A8 /* HeroNode.swift in Sources */,
+				0263C4911D29887E007636A8 /* BoardNode.swift in Sources */,
 				02759BA91D26E7A700D223C9 /* GridPoint.swift in Sources */,
 				02151E121D25B4670003C4E5 /* GameScene.swift in Sources */,
 				02759BA11D26E64000D223C9 /* Transition.swift in Sources */,
@@ -377,12 +409,15 @@
 				02151E0E1D25B4670003C4E5 /* AppDelegate.swift in Sources */,
 				02759BAD1D27013200D223C9 /* LevelData.swift in Sources */,
 				0263C47D1D2985F9007636A8 /* GridType.swift in Sources */,
-				0263C48E1D29873E007636A8 /* BoardToNodeAdapter.swift in Sources */,
+				0263C48E1D29873E007636A8 /* GridPointToCGPointAdapter.swift in Sources */,
 				0263C47F1D298612007636A8 /* Field.swift in Sources */,
 				0263C4751D29855E007636A8 /* ChainedTransition.swift in Sources */,
 				0263C4851D29868B007636A8 /* HeroMovementAction.swift in Sources */,
+				0263C4951D298F9F007636A8 /* BoxNode.swift in Sources */,
 				0263C4711D29850A007636A8 /* BoxStateTransition.swift in Sources */,
 				0263C4791D2985C0007636A8 /* UndoStack.swift in Sources */,
+				0263C49D1D299AF9007636A8 /* WallNode.swift in Sources */,
+				0263C4971D298FAA007636A8 /* DropzoneNode.swift in Sources */,
 				0263C48A1D2986F3007636A8 /* LevelDataToBoardAdapter.swift in Sources */,
 				024B23371D283F5D00C6435E /* PathFinder.swift in Sources */,
 				02151E371D25B6B10003C4E5 /* Hero.swift in Sources */,
@@ -390,6 +425,7 @@
 				0263C46F1D2984D4007636A8 /* HeroMovementTransition.swift in Sources */,
 				0263C4871D298697007636A8 /* PushBoxAction.swift in Sources */,
 				02759BA71D26E6F500D223C9 /* CollectionTypeExtensions.swift in Sources */,
+				0259ADB71D2B903400FB640D /* NodeIdentifier.swift in Sources */,
 				0263C47B1D2985D4007636A8 /* Direction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

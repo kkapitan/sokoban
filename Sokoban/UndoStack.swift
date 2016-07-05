@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+struct UndoStack {
+    var actions: [ReversibleActionType]
+    
+    mutating func pushAction(action: ReversibleActionType) {
+        self.actions.append(action)
+    }
+    
+    mutating func popAction() -> Transition? {
+        guard let action = self.actions.last else { return nil }
+        
+        return action.reverseAction()
+    }
+}
+

@@ -10,18 +10,16 @@ import Foundation
 
 struct PushBoxTransition : StateTransition {
     
-    let heroPosition: GridPoint
     let boxPosition: GridPoint
-    
-    let direction: Direction
+    let nextPosition: GridPoint
     
     func changeState(context: TransitionContext) -> TransitionContext {
-        context.hero.position = boxPosition
+        context.level.hero.position = boxPosition
         
         return context
     }
     
     func animateWithContext(context: TransitionContext, completion: () -> ()) {
-        context.animatePush(heroPosition, boxPosition: boxPosition, direction: direction, completion: completion)
+        context.animatePush(boxPosition, nextBoxPosition: nextPosition, completion: completion)
     }
 }

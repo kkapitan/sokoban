@@ -12,13 +12,24 @@ enum BoxState {
     case Missplaced
     case Placed
     
-    init(field: Field) {
+    static func currentState(field: Field) -> BoxState {
         switch field {
         case .OccupiedDropzone:
-            self = .Placed
+            return Placed
         default:
-            self = .Missplaced
+            return Missplaced
         }
     }
+    
+    static func stateAfterMovingToField(field: Field) -> BoxState {
+        switch field {
+        case .FreeDropzone:
+            return Placed
+        default:
+            return Missplaced
+        }
+    }
+    
+
 }
 

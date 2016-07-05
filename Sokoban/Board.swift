@@ -18,13 +18,13 @@ struct Board {
     subscript(point: GridPoint) -> Field? {
         guard checkBounds(point) == true else { return nil }
 
-        return grid[point.x][point.y]
+        return grid[point.y][point.x]
     }
     
     mutating func changeField(at:GridPoint, to:Field) {
         guard checkBounds(at) == true else { return }
         
-        grid[at.x][at.y] = to
+        grid[at.y][at.x] = to
     }
     
     private func checkBounds(point: GridPoint) -> Bool {
@@ -32,14 +32,6 @@ struct Board {
         guard point.y < height && point.y >= 0 else { return false }
         
         return true
-    }
-}
-
-extension Board : CustomStringConvertible {
-    var description: String {
-        guard let levelData = LevelDataToBoardAdapter().adapt(self) else { return "Empty Board" }
-        
-        return levelData.description
     }
 }
 

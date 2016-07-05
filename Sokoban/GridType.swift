@@ -16,11 +16,23 @@ protocol GridType {
 
 protocol QuerableGridType : GridType {
     
-    func elementsMatching(function: (Element) -> Bool) -> [Element]
+    func elementsMatching(function: (Element) -> Bool) -> [(Coordinates, Element)]
 }
 
+typealias Coordinates = (x: Int, y: Int)
+
 extension QuerableGridType {
-    func elementsMatching(function: (Element) -> Bool) -> [Element] {
-        return self.grid.flatMap({$0}).filter(function)
+    func elementsMatching(function: (Element) -> Bool) -> [(Coordinates, Element)] {
+        var elements: [(Coordinates, Element)] = []
+        
+        for (y, row) in grid.enumerate() {
+            for (x, field) in row.enumerate() {
+                if function(field) {
+                    elements.append((Coordinates(x, y), field))
+                }
+            }
+        }
+        
+        return elements
     }
 }

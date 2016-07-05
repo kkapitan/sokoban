@@ -17,13 +17,13 @@ struct StringToFieldsAdapter : OneSideAdaptable {
     }
 }
 
-struct LevelDataToBoardAdapter : TwoSideAdaptable {
+struct LevelDataToLevelAdapter : TwoSideAdaptable {
     typealias FromValue = LevelData
-    typealias ToValue = Board
+    typealias ToValue = Level
     
     let adapter = StringToFieldsAdapter()
     
-    func adapt(from: LevelData) -> Board? {
+    func adapt(from: LevelData) -> Level? {
         let width = from.width
         let height = from.height
         
@@ -33,14 +33,21 @@ struct LevelDataToBoardAdapter : TwoSideAdaptable {
         //Check if grid has proper dimensions (every row has been mapped correctly)
         guard grid.filter({$0.count == width}).count == height else { return nil }
         
-        return Board(width: width, height: height, grid: grid)
+        let board = Board(width: width, height: height, grid: grid)
+        
+        guard let heroData = board.elementsMatching({ $0 == .Hero }).first else { return nil }
+        
+        let heroPoint = GridPoint(x: heroData.0.x, y: heroData.0.y)
+        let hero = Hero(position: heroPoint)
+        
+        return Level(board: board, hero: hero)
     }
     
-    func adapt(from: Board) -> LevelData? {
-        let width = from.width
-        let height = from.height
+    func adapt(from: Level) -> LevelData? {
+        let width = from.board.width
+        let height = from.board.height
         
-        let gridStrings = from.grid.map({
+        let gridStrings = from.board.grid.map({
             $0.reduce("", combine: { $0.stringByAppendingString($1.rawValue) })
         })
         

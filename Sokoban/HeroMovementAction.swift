@@ -9,21 +9,19 @@
 import Foundation
 
 struct HeroMovementAction : ReversibleActionType {
-    let board: Board
-    let hero: Hero
-    
+    let level: Level
     let to: GridPoint
     
     func applyAction() -> Transition? {
-        return movementTransitionFrom(hero.position, to: to)
+        return movementTransitionFrom(level.hero.position, to: to)
     }
     
     func reverseAction() -> Transition? {
-        return movementTransitionFrom(to, to: hero.position)
+        return movementTransitionFrom(to, to: level.hero.position)
     }
     
     private func movementTransitionFrom(from: GridPoint, to: GridPoint) -> ChainedTransition? {
-        let pathFinder = PathFinder(board: board)
+        let pathFinder = PathFinder(board: level.board)
         
         //Check if path exists
         guard let path = pathFinder.pathFrom(from, to: to) else { return nil }
