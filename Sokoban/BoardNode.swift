@@ -24,10 +24,15 @@ class BoardNode : SKNode {
                 
                 guard let position = pointAdapter.adapt(gridPoint) else { return nil }
                 
+                if field != .FreeDropzone {
+                    let floorNode = EmptyNode()
+                    floorNode.position = position
+                    addChild(floorNode)
+                }
+                
                 if let spriteNode = spriteNodeForField(field) {
                     spriteNode.position = position
-                    spriteNode.zPosition = zIndexForField(field)
-                    self.addChild(spriteNode)
+                    addChild(spriteNode)
                 }
             }
         }
@@ -39,12 +44,11 @@ class BoardNode : SKNode {
         heroNode.position = heroPoint
         heroNode.zPosition = 5
         
-        self.addChild(heroNode)
-
+        addChild(heroNode)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
 }
 
@@ -52,27 +56,13 @@ extension BoardNode {
     private func spriteNodeForField(field: Field) -> SKSpriteNode? {
         switch field {
         case .Box, .OccupiedDropzone:
-            return BoxNode(color: UIColor.yellowColor(), size: size)
+            return BoxNode()
         case .FreeDropzone:
-            return DropzoneNode(color: UIColor.redColor(), size: size)
+            return DropzoneNode()
         case .Wall:
-            return WallNode(color: UIColor.blueColor(), size: size)
+            return WallNode()
         default:
             return nil
         }
-    }
-    
-    private func zIndexForField(field: Field) -> CGFloat {
-        switch field {
-        case .Box, .OccupiedDropzone:
-            return 2
-        case .FreeDropzone:
-            return 1
-        case .Wall:
-            return 3
-        default:
-            return 0
-        }
-        
     }
 }

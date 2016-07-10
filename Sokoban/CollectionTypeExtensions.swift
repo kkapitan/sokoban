@@ -15,3 +15,9 @@ extension CollectionType {
         return self[index]
     }
 }
+
+extension Array {
+    func randomElement() -> Generator.Element {
+        return self[Int(arc4random_uniform(UInt32(self.count)))]
+    }
+}

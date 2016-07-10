@@ -36,7 +36,7 @@ class NodeTransitionContext : TransitionContext {
             return
         }
     
-        let movementAction = SKAction.moveTo(destinationPoint, duration: 0.3)
+        let movementAction = SKAction.moveTo(destinationPoint, duration: 0.1)
         
         movingNode.runAction(movementAction, completion: completion)
     }

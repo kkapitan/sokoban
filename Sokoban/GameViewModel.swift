@@ -23,19 +23,22 @@ extension GameViewModel {
     func readLevel() -> BoardNode? {
         
         let jsonPathOptional = NSBundle.mainBundle().pathForResource("level", ofType: "json")
+        
         guard let jsonPath = jsonPathOptional, jsonData = NSData(contentsOfFile: jsonPath) else { return nil }
         
         do {
-            let json =  try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments) as? NSDictionary
-            let levelData = JSONToLevelDataAdapter().adapt(json!)
-            let levelOptional = LevelDataToLevelAdapter().adapt(levelData!)
+            guard let json =  try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments) as? NSDictionary else { return nil }
             
-            guard let level = levelOptional else { return nil }
+            guard let levelData = JSONToLevelDataAdapter().adapt(json) else { return nil }
+            
+            guard let level = LevelDataToLevelAdapter().adapt(levelData) else { return nil }
             
             guard let boardNode = BoardNode(level: level) else { return nil }
             
             let context = NodeTransitionContext(level: level, boardNode: boardNode)
+            
             self.manager = GameManager(context: context)
+            self.manager?.delegate = self
             
             return boardNode
         } catch {
@@ -44,9 +47,15 @@ extension GameViewModel {
     }
 }
 
+extension GameViewModel : GameManagerDelegate {
+    func gameManagerDidDetectWiningState(manager: GameManager) {
+        print("WIN WIN WIN")
+    }
+}
+
 extension GameViewModel : GameSceneDelegate {
     func boardNode(boardNode: BoardNode, didTouchNode node: SKNode, atPoint: CGPoint) {
-        guard var manager = manager where isMoving == false else { return }
+        guard let manager = manager where isMoving == false else { return }
         
         isMoving = true
         
