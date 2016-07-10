@@ -13,6 +13,14 @@ extension CGPoint {
     func translateBy(vector: CGPoint) -> CGPoint {
         return CGPointMake(self.x + vector.x, self.y + vector.y)
     }
+    
+    func scaleBy(factor: CGFloat) -> CGPoint {
+        return scaleBy((factor, factor))
+    }
+    
+    func scaleBy(factors: (CGFloat, CGFloat)) -> CGPoint {
+        return CGPointMake(self.x * factors.0, self.y * factors.1)
+    }
 }
 
 struct GridPointToCGPointAdapter : TwoSideAdaptable {

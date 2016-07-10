@@ -91,9 +91,9 @@ class NodeTransitionContext : TransitionContext {
         }
         
         let boxNode = boardNode.nodeAtPoint(boxNodePoint)
-        let color = toState == .Placed ? UIColor.brownColor() : UIColor.yellowColor()
+        let blendFactor: CGFloat = toState == .Placed ? 0.5 : 0
         
-        let action = SKAction.colorizeWithColor(color, colorBlendFactor:0.2, duration: 0.1)
+        let action = SKAction.colorizeWithColor(UIColor.redColor(), colorBlendFactor: blendFactor, duration: 0.1)
         boxNode.runAction(action, completion: completion)
     }
     

@@ -22,7 +22,7 @@ extension GameViewModel {
     
     func readLevel() -> BoardNode? {
         
-        let jsonPathOptional = NSBundle.mainBundle().pathForResource("level", ofType: "json")
+        let jsonPathOptional = NSBundle.mainBundle().pathForResource("levelbig", ofType: "json")
         
         guard let jsonPath = jsonPathOptional, jsonData = NSData(contentsOfFile: jsonPath) else { return nil }
         

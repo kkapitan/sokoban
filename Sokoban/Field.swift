@@ -15,6 +15,7 @@ enum Field : String {
     case FreeDropzone = "f"
     case OccupiedDropzone = "o"
     case Empty = "e"
+    case Outside = "x"
     
     func isMovementValid() -> Bool {
         return [.Empty, .FreeDropzone, .Hero].contains(self)

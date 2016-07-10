@@ -13,9 +13,17 @@ let tileSize : CGFloat = 44.0
 let size = CGSizeMake(tileSize, tileSize)
 
 class BoardNode : SKNode {
+    private(set) var nodeSize: CGSize = CGSizeZero
+    
+    var scaledSize : CGSize {
+        return CGSizeMake(nodeSize.width * xScale, nodeSize.height * yScale)
+    }
+    
     init?(level: Level) {
         super.init()
         let pointAdapter = GridPointToCGPointAdapter(board: level.board)
+        
+        nodeSize = CGSizeMake(tileSize * CGFloat(level.board.width), tileSize * CGFloat(level.board.height))
         
         for (y, row) in level.board.grid.enumerate() {
             for (x, field) in row.enumerate() {
@@ -24,15 +32,11 @@ class BoardNode : SKNode {
                 
                 guard let position = pointAdapter.adapt(gridPoint) else { return nil }
                 
-                if field != .FreeDropzone {
-                    let floorNode = EmptyNode()
-                    floorNode.position = position
-                    addChild(floorNode)
-                }
-                
-                if let spriteNode = spriteNodeForField(field) {
-                    spriteNode.position = position
-                    addChild(spriteNode)
+                if let spriteNodes = spriteNodesForField(field) {
+                    for spriteNode in spriteNodes {
+                        spriteNode.position = position
+                        addChild(spriteNode)
+                    }
                 }
             }
         }
@@ -53,14 +57,16 @@ class BoardNode : SKNode {
 }
 
 extension BoardNode {
-    private func spriteNodeForField(field: Field) -> SKSpriteNode? {
+    private func spriteNodesForField(field: Field) -> [SKSpriteNode]? {
         switch field {
         case .Box, .OccupiedDropzone:
-            return BoxNode()
+            return [BoxNode(), EmptyNode()]
         case .FreeDropzone:
-            return DropzoneNode()
+            return [DropzoneNode()]
         case .Wall:
-            return WallNode()
+            return [WallNode()]
+        case .Empty, .Hero:
+            return [EmptyNode()]
         default:
             return nil
         }

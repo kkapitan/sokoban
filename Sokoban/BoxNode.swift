@@ -6,7 +6,6 @@
 //  Copyright © 2016 CappSoft. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 
 class BoxNode : SKSpriteNode {

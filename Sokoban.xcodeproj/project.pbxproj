@@ -56,6 +56,7 @@
 		02C8DAAF1D2D8F12002A602B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C8DAAE1D2D8F12002A602B /* MenuViewController.swift */; };
 		02C8DAB11D2D9049002A602B /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C8DAB01D2D9049002A602B /* MenuViewModel.swift */; };
 		02D4A3011D27092000A319B4 /* level.json in Resources */ = {isa = PBXBuildFile; fileRef = 02D4A3001D27092000A319B4 /* level.json */; };
+		02E9C6AF1D3261CA0000DD4B /* levelbig.json in Resources */ = {isa = PBXBuildFile; fileRef = 02E9C6AE1D3261CA0000DD4B /* levelbig.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		02C8DAAE1D2D8F12002A602B /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		02C8DAB01D2D9049002A602B /* MenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		02D4A3001D27092000A319B4 /* level.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level.json; sourceTree = "<group>"; };
+		02E9C6AE1D3261CA0000DD4B /* levelbig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = levelbig.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				02D4A3001D27092000A319B4 /* level.json */,
+				02E9C6AE1D3261CA0000DD4B /* levelbig.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 			files = (
 				02151E1C1D25B4670003C4E5 /* LaunchScreen.storyboard in Resources */,
 				02151E191D25B4670003C4E5 /* Assets.xcassets in Resources */,
+				02E9C6AF1D3261CA0000DD4B /* levelbig.json in Resources */,
 				02D4A3011D27092000A319B4 /* level.json in Resources */,
 				02151E171D25B4670003C4E5 /* Main.storyboard in Resources */,
 			);
