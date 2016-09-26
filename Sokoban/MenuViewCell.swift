@@ -18,4 +18,4 @@ class MenuViewCell : UICollectionViewCell {
     }
 }
 
-extension MenuViewCell : CellType {}
+//extension MenuViewCell : CellType {}

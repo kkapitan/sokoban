@@ -13,14 +13,14 @@ extension SKScene {
         return min(1, min(boundsSize.height / defaultSize.height, boundsSize.width / defaultSize.width))
     }
     
-    func positionToCenterInBounds(bounds: CGRect, size: CGSize) -> CGPoint {
-        return CGPointMake(bounds.midX - size.width/2, bounds.midY - size.height/2)
+    func positionToCenterInSize(boundsSize: CGSize, size: CGSize) -> CGPoint {
+        return CGPointMake(boundsSize.width/2 - size.width/2, boundsSize.height/2 - size.height/2)
     }
 }
 
 class GameScene: SKScene {
     private(set) var boardNode : BoardNode?
-    var gameDelegate: GameSceneDelegate?
+    weak var gameDelegate: GameSceneDelegate?
     
     override func didMoveToView(view: SKView) {
         guard let boardNode = boardNode else { return }
@@ -34,7 +34,7 @@ class GameScene: SKScene {
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(zoomAction))
         view.addGestureRecognizer(pinchGestureRecognizer)
         
-        boardNode.position = positionToCenterInBounds(view.bounds, size: boardNode.scaledSize)
+        boardNode.position = positionToCenterInSize(size, size: boardNode.scaledSize)
     }
     
     init(size: CGSize, boardNode: BoardNode) {
@@ -68,8 +68,6 @@ class GameScene: SKScene {
         }
         
         gameDelegate?.boardNode(boardNode, didTouchNode: touchedBoardNode, atPoint: boardTouchPoint)
-        
-        print(touchedBoardNode.dynamicType, touchedSceneNode.dynamicType)
     }
         
     @objc private func scrollAction(sender: UIPanGestureRecognizer) {
@@ -92,10 +90,9 @@ class GameScene: SKScene {
         
         let x = max(-xMax, min(position.x + translation.x, xMin))
         let y = max(-yMax, min(position.y + translation.y, yMin))
-
-        boardNode.position = CGPointMake(x, y)
-        print(boardNode.position)
-        print(scaledNodeSize, size)
+        
+        let centerPosition = positionToCenterInSize(size, size:boardNode.nodeSize)
+        boardNode.position = CGPointMake(x, y).translateBy(centerPosition)
     }
     
     
@@ -123,8 +120,7 @@ class GameScene: SKScene {
             let x = position.x + (defaultX - position.x) * (1-progress)
             let y = position.y + (defaultY - position.y) * (1-progress)
             
-            print(progress, boardNode.xScale)
-            boardNode.position = CGPointMake(x, y)
+            //boardNode.position = CGPointMake(x, y)
 
             
             boardNode.xScale = min(max(boardNode.xScale * scaleFactor, maxScaleFactor), minScaleFactor)

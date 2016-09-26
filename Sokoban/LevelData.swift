@@ -9,6 +9,8 @@
 import Foundation
 
 struct LevelData {
+    let id: Int
+    let markLimits: [Int]
     
     let width: Int
     let height: Int

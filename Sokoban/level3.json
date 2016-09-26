@@ -1,0 +1,13 @@
+{
+"id": 3,
+"marks": [4,8],
+"width": 7,
+"height": 5,
+"board": [
+        "wwwwwww",
+        "whbfeew",
+        "weeebfw",
+        "weeewww",
+        "wwwwwww"
+        ]
+}

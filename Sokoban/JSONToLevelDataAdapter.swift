@@ -14,6 +14,12 @@ struct JSONToLevelDataAdapter : OneSideAdaptable {
     
     func adapt(from: NSDictionary) -> LevelData? {
         
+        //Get id
+        guard let id = from.valueForKey("id")?.integerValue else { return nil }
+        
+        //Get marks
+        guard let marks = from.valueForKey("marks") as? [Int] else { return nil }
+        
         //Get dimensions
         guard let width = from.valueForKey("width")?.integerValue else { return nil }
         guard let height = from.valueForKey("height")?.integerValue else { return nil }
@@ -21,7 +27,7 @@ struct JSONToLevelDataAdapter : OneSideAdaptable {
         //Get array of strings representing grid
         guard let gridArray = from.valueForKey("board") as? [String] else { return nil }
         
-        return LevelData(width: width, height: height, gridStrings: gridArray)
+        return LevelData(id: id, markLimits: marks, width: width, height: height, gridStrings: gridArray)
     }
 }
 

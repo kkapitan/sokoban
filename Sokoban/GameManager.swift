@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol GameManagerDelegate {
+protocol GameManagerDelegate: class {
     func gameManagerDidDetectWiningState(manager: GameManager)
 }
 
@@ -16,7 +16,7 @@ struct GameManager {
     private(set) var undoStack: UndoStack = UndoStack()
     
     let context: TransitionContext
-    var delegate: GameManagerDelegate?
+    weak var delegate: GameManagerDelegate?
     
     
     func moveTo(at: GridPoint, completion: ((context: TransitionContext?) -> ())?) {

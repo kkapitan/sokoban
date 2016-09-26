@@ -9,6 +9,9 @@
 import Foundation
 
 struct Level {
+    var number: Int
+    var limits: [Int]
+    
     var board: Board
     var hero: Hero
 }

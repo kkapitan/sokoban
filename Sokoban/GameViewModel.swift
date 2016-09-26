@@ -9,47 +9,45 @@
 import Foundation
 import SpriteKit
 
-protocol GameSceneDelegate {
+protocol GameSceneDelegate: class {
     func boardNode(boardNode: BoardNode, didTouchNode node: SKNode, atPoint: CGPoint)
 }
 
 class GameViewModel {
     private(set) var manager: GameManager?
     private(set) var isMoving: Bool = false
+    
+    private var levelData: LevelData
+    private var movementCounter: Int
+    
+    weak var delegate: GameViewModelDelegate?
+    
+    init(levelData: LevelData) {
+        self.levelData = levelData
+        movementCounter = 0
+    }
 }
 
 extension GameViewModel {
     
-    func readLevel() -> BoardNode? {
-        
-        let jsonPathOptional = NSBundle.mainBundle().pathForResource("levelbig", ofType: "json")
-        
-        guard let jsonPath = jsonPathOptional, jsonData = NSData(contentsOfFile: jsonPath) else { return nil }
-        
-        do {
-            guard let json =  try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments) as? NSDictionary else { return nil }
+    func initLevel() -> BoardNode? {
             
-            guard let levelData = JSONToLevelDataAdapter().adapt(json) else { return nil }
+        guard let level = LevelDataToLevelAdapter().adapt(levelData) else { return nil }
             
-            guard let level = LevelDataToLevelAdapter().adapt(levelData) else { return nil }
+        guard let boardNode = BoardNode(level: level) else { return nil }
             
-            guard let boardNode = BoardNode(level: level) else { return nil }
+        let context = NodeTransitionContext(level: level, boardNode: boardNode)
             
-            let context = NodeTransitionContext(level: level, boardNode: boardNode)
+        self.manager = GameManager(context: context)
+        self.manager?.delegate = self
             
-            self.manager = GameManager(context: context)
-            self.manager?.delegate = self
-            
-            return boardNode
-        } catch {
-            return nil
-        }
+        return boardNode
     }
 }
 
 extension GameViewModel : GameManagerDelegate {
     func gameManagerDidDetectWiningState(manager: GameManager) {
-        print("WIN WIN WIN")
+        delegate?.gameViewModel(self, didWinLevelWithMark: 2)
     }
 }
 
@@ -73,5 +71,8 @@ extension GameViewModel : GameSceneDelegate {
                 self.isMoving = false
             })
         }
+        
+        movementCounter = movementCounter + 1
+        delegate?.gameViewModel(self, didUpdateMovementCount: movementCounter)
     }
 }

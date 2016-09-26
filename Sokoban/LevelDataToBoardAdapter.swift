@@ -40,17 +40,20 @@ struct LevelDataToLevelAdapter : TwoSideAdaptable {
         let heroPoint = GridPoint(x: heroData.0.x, y: heroData.0.y)
         let hero = Hero(position: heroPoint)
         
-        return Level(board: board, hero: hero)
+        return Level(number: from.id, limits: from.markLimits, board: board, hero: hero)
     }
     
     func adapt(from: Level) -> LevelData? {
         let width = from.board.width
         let height = from.board.height
         
+        let limits = from.limits
+        let id = from.number
+        
         let gridStrings = from.board.grid.map({
             $0.reduce("", combine: { $0.stringByAppendingString($1.rawValue) })
         })
         
-        return LevelData(width: width, height: height, gridStrings: gridStrings)
+        return LevelData(id: id, markLimits: limits, width: width, height: height, gridStrings: gridStrings)
     }
 }

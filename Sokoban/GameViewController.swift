@@ -9,11 +9,23 @@
 import UIKit
 import SpriteKit
 
+protocol GameViewModelDelegate: class {
+    func gameViewModel(_:GameViewModel, didWinLevelWithMark mark: Int)
+    func gameViewModel(_:GameViewModel, didUpdateMovementCount count: Int)
+}
+
 class GameViewController: UIViewController {
-    private(set) var gameViewModel = GameViewModel()
+    var levelData: LevelData! {
+        didSet {
+            gameViewModel = GameViewModel(levelData: levelData)
+        }
+    }
+    
+    private(set) var gameViewModel: GameViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         let skView = self.view as! SKView
         
@@ -21,9 +33,15 @@ class GameViewController: UIViewController {
         skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
         
-        if let levelNode = gameViewModel.readLevel() {
+        reloadLevel()
+    }
+    
+    func reloadLevel() {
+        let skView = self.view as! SKView
+        
+        if let levelNode = gameViewModel.initLevel() {
             
-            let scene = GameScene(size: self.view.bounds.size, boardNode: levelNode)
+            let scene = GameScene(size: CGSizeMake(375,375), boardNode: levelNode)
             scene.scaleMode = .AspectFill
             
             scene.gameDelegate = gameViewModel
@@ -31,3 +49,5 @@ class GameViewController: UIViewController {
         }
     }
 }
+
+
