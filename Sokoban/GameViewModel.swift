@@ -47,7 +47,16 @@ extension GameViewModel {
 
 extension GameViewModel : GameManagerDelegate {
     func gameManagerDidDetectWiningState(manager: GameManager) {
-        delegate?.gameViewModel(self, didWinLevelWithMark: 2)
+        NSUserDefaults.standardUserDefaults().registerScore(movementCounter, level: levelData)
+        
+        let limits = levelData.markLimits
+        
+        let greaterThan = limits.filter { $0 >= movementCounter }.count
+        let mark = greaterThan + 1
+        
+        NSUserDefaults.standardUserDefaults().registerMark(mark, level:levelData)
+        
+        delegate?.gameViewModel(self, didWinLevelWithMark: mark)
     }
 }
 

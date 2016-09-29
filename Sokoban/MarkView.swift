@@ -10,21 +10,38 @@ import UIKit
 
 extension NSUserDefaults {
     
+    func registerScore(score: Int, level: LevelData) {
+        guard score < getBest(level) || getBest(level) == nil else { return }
+        
+        let key = bestKeyForLevel(level)
+        setObject(score, forKey: key)
+    }
+    
+    func getBest(level: LevelData) -> Int? {
+        let key = bestKeyForLevel(level)
+        
+        return objectForKey(key) as? Int
+    }
+    
     func registerMark(mark: Int, level: LevelData) {
         guard getMark(level) < mark else { return }
         
-        let key = keyForLevel(level)
+        let key = markKeyForLevel(level)
         setObject(mark, forKey: key)
     }
     
     func getMark(level: LevelData) -> Int {
-        let key = keyForLevel(level)
+        let key = markKeyForLevel(level)
         
         return objectForKey(key) as? Int ?? 0
     }
     
-    private func keyForLevel(level: LevelData) -> String {
+    private func markKeyForLevel(level: LevelData) -> String {
         return "sokoban-mark-key-level-\(level.id)"
+    }
+
+    private func bestKeyForLevel(level: LevelData) -> String {
+        return "sokoban-best-key-level-\(level.id)"
     }
 }
 

@@ -30,8 +30,10 @@ class LevelDataProvider: Provider<LevelData> {
     }
 }
 
-class LevelSelectionViewController : UICollectionViewController {
+class LevelSelectionViewController : UIViewController, UICollectionViewDelegate {
     let dataSource = CollectionDataSource<LevelSelectionCell>(provider: LevelDataProvider())
+    
+    @IBOutlet weak var collectionView: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,7 @@ class LevelSelectionViewController : UICollectionViewController {
         setupDataSource()
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         guard let levelData = dataSource.itemsToPresent()?[safe: indexPath.row] else { return }
         
         let levelDetailsViewController = MainWireframe().levelDetailsViewController()
@@ -62,6 +64,7 @@ extension LevelSelectionViewController {
     
     private func setupViews() {
         collectionView?.dataSource = dataSource
+        collectionView?.delegate = self
     }
     
     private func setupDataSource() {

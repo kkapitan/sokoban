@@ -12,10 +12,16 @@ class LevelViewController : UIViewController {
     var levelData: LevelData!
     weak var gameViewController: GameViewController!
     
+    @IBOutlet weak var movesLabel: UILabel!
+    @IBOutlet weak var levelNameLabel: UILabel!
+    @IBOutlet weak var bestLabel: UILabel!
+    
     let embedGameControllerSegue = "GameControllerEmbedSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        populateViews()
     }
     
     @IBAction func backToMenuAction(sender: AnyObject) {
@@ -23,6 +29,8 @@ class LevelViewController : UIViewController {
     }
     
     @IBAction func resetLevelAction(sender: AnyObject) {
+        populateViews()
+        
         gameViewController.view.removeFromSuperview()
         gameViewController.removeFromParentViewController()
         performSegueWithIdentifier(embedGameControllerSegue, sender: nil)
@@ -39,6 +47,25 @@ class LevelViewController : UIViewController {
         
         self.gameViewController = gameViewController
     }
+    
+    func updateBestLabel(best: Int?) {
+        if let best = best {
+            bestLabel.text = "Best: \(best)"
+        } else {
+            bestLabel.text = "Best: ----"
+        }
+    }
+    
+    func updateMovesLabel(moves: Int) {
+        movesLabel.text = "Moves: \(moves)"
+    }
+    
+    func populateViews() {
+        let best = NSUserDefaults.standardUserDefaults().getBest(levelData)
+        updateBestLabel(best)
+        
+        updateMovesLabel(0)
+    }
 }
 
 extension LevelViewController : ViewControllerIdentificable {}
@@ -46,6 +73,7 @@ extension LevelViewController : ViewControllerIdentificable {}
 extension LevelViewController : GameViewModelDelegate {
     
     func gameViewModel(_: GameViewModel, didWinLevelWithMark mark: Int) {
+        
         let levelCompletedViewController = MainWireframe().levelCompletedViewController()
         
         levelCompletedViewController.backToMenuAction = { [weak self] in
@@ -85,10 +113,13 @@ extension LevelViewController : GameViewModelDelegate {
             })
         }
         
+        levelCompletedViewController.mark = mark
+        
         levelCompletedViewController.modalPresentationStyle = .Custom
         presentViewController(levelCompletedViewController, animated: false, completion: nil)
     }
     
     func gameViewModel(_: GameViewModel, didUpdateMovementCount count: Int) {
+        updateMovesLabel(count)
     }
 }
