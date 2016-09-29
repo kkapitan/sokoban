@@ -30,9 +30,12 @@ struct HeroMovementAction : ReversibleActionType {
         let pathSlice = Array(path[1..<path.count])
         
         //Mapping is required since swift is not able to figure out that HeroMovementTransition conforms to Transition
-        let transitions = zip(path, pathSlice).map ({
+        var transitions = zip(path, pathSlice).map ({
             HeroMovementTransition(from:$0, to:$1) as Transition
         })
+        
+        let idleTransition = HeroIdleTransition()
+        transitions.append(idleTransition)
         
         return ChainedTransition(transitions: transitions)
     }

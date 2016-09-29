@@ -38,7 +38,9 @@ struct PushBoxAction : ReversibleActionType {
         
         let boxStateTransition = BoxStateTransition(boxPosition: boxPosition, nextPosition: newBoxPosition, fromState: preBoxState, toState: postBoxState)
         
-        return ChainedTransition(transitions: [pushTransition, boxStateTransition])
+        let idleTransition = HeroIdleTransition()
+        
+        return ChainedTransition(transitions: [pushTransition, boxStateTransition, idleTransition])
     }
     
     func reverseAction() -> Transition? {

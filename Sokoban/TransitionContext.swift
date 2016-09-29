@@ -12,6 +12,7 @@ import SpriteKit
 protocol TransitionContext : class {
     var level: Level { get  set}
     
+    func animateIdleState(completion: () -> ())
     func animateMovement(from: GridPoint, to: GridPoint, completion: () -> ())
     func animatePush(boxPosition: GridPoint, nextBoxPosition: GridPoint, completion: () -> ())
     func animateBoxStateTransition(boxPosition: GridPoint, fromState:BoxState, toState: BoxState, completion: () -> ())
@@ -22,6 +23,16 @@ class NodeTransitionContext : TransitionContext {
     var level: Level
     var boardNode: BoardNode
     
+    func animateIdleState(completion: () -> ()) {
+        guard let movingNode = boardNode.childNodeWithIdentifier(.HeroIdentifier) as? HeroNode else {
+            completion()
+            return
+        }
+        
+        movingNode.heroState = .Idle
+        completion()
+    }
+    
     func animateMovement(from: GridPoint, to: GridPoint, completion: () -> ()) {
         
         let pointToNode = GridPointToCGPointAdapter(board: level.board)
@@ -31,12 +42,15 @@ class NodeTransitionContext : TransitionContext {
             return
         }
         
-        guard let movingNode = boardNode.childNodeWithIdentifier(.HeroIdentifier) else {
+        guard let movingNode = boardNode.childNodeWithIdentifier(.HeroIdentifier) as? HeroNode else {
             completion()
             return
         }
-    
-        let movementAction = SKAction.moveTo(destinationPoint, duration: 0.1)
+        
+        let direction = Direction(from: from, to: to)
+        movingNode.heroState = .Moving(direction)
+        
+        let movementAction = SKAction.moveTo(destinationPoint, duration: 0.2)
         
         movingNode.runAction(movementAction, completion: completion)
     }
@@ -55,10 +69,13 @@ class NodeTransitionContext : TransitionContext {
             return
         }
         
-        guard let heroNode = boardNode.childNodeWithIdentifier(.HeroIdentifier) else {
+        guard let heroNode = boardNode.childNodeWithIdentifier(.HeroIdentifier) as? HeroNode else {
             completion()
             return
         }
+        
+        let direction = Direction(from: boxPosition, to: nextBoxPosition)
+        heroNode.heroState = .Pushing(direction)
         
         let boxNode = boardNode.nodeAtPoint(heroDestinationPoint)
         

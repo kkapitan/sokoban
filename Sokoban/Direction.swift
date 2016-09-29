@@ -40,5 +40,15 @@ enum Direction {
     static func allDirections() -> [Direction] {
         return [.Up, .Down, .Left, .Right]
     }
+    
+    init(from: GridPoint, to: GridPoint) {
+        if from.x < to.x { self = .Right }
+        
+        else if from.x > to.x { self = .Left }
+        
+        else if from.y > to.y { self = .Down }
+        
+        else { self = .Up }
+    }
 }
 

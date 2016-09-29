@@ -22,3 +22,11 @@ struct HeroMovementTransition : StateTransition {
         context.animateMovement(from, to: to, completion: completion)
     }
 }
+
+struct HeroIdleTransition : Transition {
+    func apply(context: TransitionContext, animated: Bool, completion: ((context: TransitionContext) -> ())?) {
+        context.animateIdleState { 
+            completion?(context: context)
+        }
+    }
+}

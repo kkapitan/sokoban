@@ -113,6 +113,38 @@
             endingLineNumber = "37"
             landmarkName = "adapt(_:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sokoban.LevelDataToLevelAdapter.adapt (Sokoban.LevelData) -&gt; Swift.Optional&lt;Sokoban.Level&gt;"
+                  moduleName = "Sokoban"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kkapitan/Projekty/iOS/Sokoban/Sokoban/LevelDataToBoardAdapter.swift"
+                  timestampString = "496872025.653"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "1104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sokoban.LevelDataToLevelAdapter.(adapt (Sokoban.LevelData) -&gt; Swift.Optional&lt;Sokoban.Level&gt;).(closure #4)"
+                  moduleName = "Sokoban"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kkapitan/Projekty/iOS/Sokoban/Sokoban/LevelDataToBoardAdapter.swift"
+                  timestampString = "496872025.653265"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

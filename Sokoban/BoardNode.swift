@@ -43,7 +43,7 @@ class BoardNode : SKNode {
         
         guard let heroPoint = pointAdapter.adapt(level.hero.position) else { return nil }
         
-        let heroNode = HeroNode(color: UIColor.greenColor(), size: size)
+        let heroNode = HeroNode()
         heroNode.name = NodeIdentifiers.HeroIdentifier.name
         heroNode.position = heroPoint
         heroNode.zPosition = 5
