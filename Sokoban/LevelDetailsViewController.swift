@@ -30,7 +30,7 @@ class LevelDetailsViewController : UIViewController {
     }
     
     @IBAction func tapAction(sender: UITapGestureRecognizer) {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(false, completion: nil)
     }
     
     @IBAction func startAction(sender: UIButton) {
