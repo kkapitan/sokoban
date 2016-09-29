@@ -25,26 +25,16 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         guard let boardNode = boardNode else { return }
         
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(scrollAction))
-        view.addGestureRecognizer(panGestureRecognizer)
-        
         let touchGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         view.addGestureRecognizer(touchGestureRecognizer)
         
-        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(zoomAction))
-        view.addGestureRecognizer(pinchGestureRecognizer)
-        
-        boardNode.position = positionToCenterInSize(size, size: boardNode.scaledSize)
+        boardNode.position = positionToCenterInSize(size, size: boardNode.nodeSize)
     }
     
     init(size: CGSize, boardNode: BoardNode) {
         super.init(size: size)
         
         self.boardNode = boardNode
-        
-        let scaleFactor = scaleToFullyVisibleInBounds(size, defaultSize: boardNode.nodeSize)
-        boardNode.setScale(scaleFactor)
-        
         self.addChild(boardNode)
     }
     

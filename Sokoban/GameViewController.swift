@@ -21,33 +21,46 @@ class GameViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    weak var skView: SKView?
+    
     private(set) var gameViewModel: GameViewModel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        
-        let skView = self.view as! SKView
-        
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        skView.ignoresSiblingOrder = true
-        
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    
         reloadLevel()
     }
     
     func reloadLevel() {
-        let skView = self.view as! SKView
-        
         if let levelNode = gameViewModel.initLevel() {
+            skView?.removeFromSuperview()
             
-            let scene = GameScene(size: CGSizeMake(375,375), boardNode: levelNode)
-            scene.scaleMode = .AspectFill
+            let size = levelNode.nodeSize
+            
+            let width = max(size.width, scrollView.frame.size.width)
+            let height = max(size.height, scrollView.frame.size.height)
+            
+            let newSize = CGSizeMake(width, height)
+            
+            let view = SKView(frame: CGRect(origin: CGPointZero, size: newSize))
+            
+            scrollView.addSubview(view)
+            scrollView.contentSize = newSize
+            
+            let scene = GameScene(size: newSize, boardNode: levelNode)
+            scene.scaleMode = .AspectFit
             
             scene.gameDelegate = gameViewModel
-            skView.presentScene(scene)
+            view.presentScene(scene)
+
+            
+            skView = view
+            
+            skView?.showsFPS = true
+            skView?.showsNodeCount = true
+            skView?.ignoresSiblingOrder = true
         }
     }
 }
-
 

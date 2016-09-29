@@ -53,6 +53,22 @@
 		02759BA91D26E7A700D223C9 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02759BA81D26E7A700D223C9 /* GridPoint.swift */; };
 		02759BAB1D26EB2700D223C9 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02759BAA1D26EB2700D223C9 /* Adapter.swift */; };
 		02759BAD1D27013200D223C9 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02759BAC1D27013200D223C9 /* LevelData.swift */; };
+		02A58C691D9D6F2800A1B066 /* level6.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C671D9D6F2800A1B066 /* level6.json */; };
+		02A58C6A1D9D6F2800A1B066 /* level7.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C681D9D6F2800A1B066 /* level7.json */; };
+		02A58C791D9D6F3600A1B066 /* level8.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C6B1D9D6F3600A1B066 /* level8.json */; };
+		02A58C7A1D9D6F3600A1B066 /* level9.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C6C1D9D6F3600A1B066 /* level9.json */; };
+		02A58C7B1D9D6F3600A1B066 /* level10.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C6D1D9D6F3600A1B066 /* level10.json */; };
+		02A58C7C1D9D6F3600A1B066 /* level11.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C6E1D9D6F3600A1B066 /* level11.json */; };
+		02A58C7D1D9D6F3600A1B066 /* level12.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C6F1D9D6F3600A1B066 /* level12.json */; };
+		02A58C7E1D9D6F3600A1B066 /* level13.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C701D9D6F3600A1B066 /* level13.json */; };
+		02A58C7F1D9D6F3600A1B066 /* level14.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C711D9D6F3600A1B066 /* level14.json */; };
+		02A58C801D9D6F3600A1B066 /* level15.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C721D9D6F3600A1B066 /* level15.json */; };
+		02A58C811D9D6F3600A1B066 /* level16.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C731D9D6F3600A1B066 /* level16.json */; };
+		02A58C821D9D6F3600A1B066 /* level17.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C741D9D6F3600A1B066 /* level17.json */; };
+		02A58C831D9D6F3600A1B066 /* level18.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C751D9D6F3600A1B066 /* level18.json */; };
+		02A58C841D9D6F3600A1B066 /* level19.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C761D9D6F3600A1B066 /* level19.json */; };
+		02A58C851D9D6F3600A1B066 /* level20.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C771D9D6F3600A1B066 /* level20.json */; };
+		02A58C861D9D6F3600A1B066 /* level21.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A58C781D9D6F3600A1B066 /* level21.json */; };
 		02A9856E1D858AC200423F68 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9856D1D858AC200423F68 /* ViewExtensions.swift */; };
 		02A985711D858C1600423F68 /* LevelCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A985701D858C1600423F68 /* LevelCompletedViewController.swift */; };
 		02A985741D8591B400423F68 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A985731D8591B400423F68 /* Colors.swift */; };
@@ -141,6 +157,22 @@
 		02759BA81D26E7A700D223C9 /* GridPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
 		02759BAA1D26EB2700D223C9 /* Adapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
 		02759BAC1D27013200D223C9 /* LevelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
+		02A58C671D9D6F2800A1B066 /* level6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level6.json; sourceTree = "<group>"; };
+		02A58C681D9D6F2800A1B066 /* level7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level7.json; sourceTree = "<group>"; };
+		02A58C6B1D9D6F3600A1B066 /* level8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level8.json; sourceTree = "<group>"; };
+		02A58C6C1D9D6F3600A1B066 /* level9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level9.json; sourceTree = "<group>"; };
+		02A58C6D1D9D6F3600A1B066 /* level10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level10.json; sourceTree = "<group>"; };
+		02A58C6E1D9D6F3600A1B066 /* level11.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level11.json; sourceTree = "<group>"; };
+		02A58C6F1D9D6F3600A1B066 /* level12.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level12.json; sourceTree = "<group>"; };
+		02A58C701D9D6F3600A1B066 /* level13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level13.json; sourceTree = "<group>"; };
+		02A58C711D9D6F3600A1B066 /* level14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level14.json; sourceTree = "<group>"; };
+		02A58C721D9D6F3600A1B066 /* level15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level15.json; sourceTree = "<group>"; };
+		02A58C731D9D6F3600A1B066 /* level16.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level16.json; sourceTree = "<group>"; };
+		02A58C741D9D6F3600A1B066 /* level17.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level17.json; sourceTree = "<group>"; };
+		02A58C751D9D6F3600A1B066 /* level18.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level18.json; sourceTree = "<group>"; };
+		02A58C761D9D6F3600A1B066 /* level19.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level19.json; sourceTree = "<group>"; };
+		02A58C771D9D6F3600A1B066 /* level20.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level20.json; sourceTree = "<group>"; };
+		02A58C781D9D6F3600A1B066 /* level21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level21.json; sourceTree = "<group>"; };
 		02A9856D1D858AC200423F68 /* ViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		02A985701D858C1600423F68 /* LevelCompletedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelCompletedViewController.swift; sourceTree = "<group>"; };
 		02A985731D8591B400423F68 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -479,6 +511,22 @@
 				02663DA91D8EEBE200EBDE46 /* level3.json */,
 				02663DAB1D8EEBE700EBDE46 /* level4.json */,
 				02663DAD1D8EEBEA00EBDE46 /* level5.json */,
+				02A58C671D9D6F2800A1B066 /* level6.json */,
+				02A58C681D9D6F2800A1B066 /* level7.json */,
+				02A58C6B1D9D6F3600A1B066 /* level8.json */,
+				02A58C6C1D9D6F3600A1B066 /* level9.json */,
+				02A58C6D1D9D6F3600A1B066 /* level10.json */,
+				02A58C6E1D9D6F3600A1B066 /* level11.json */,
+				02A58C6F1D9D6F3600A1B066 /* level12.json */,
+				02A58C701D9D6F3600A1B066 /* level13.json */,
+				02A58C711D9D6F3600A1B066 /* level14.json */,
+				02A58C721D9D6F3600A1B066 /* level15.json */,
+				02A58C731D9D6F3600A1B066 /* level16.json */,
+				02A58C741D9D6F3600A1B066 /* level17.json */,
+				02A58C751D9D6F3600A1B066 /* level18.json */,
+				02A58C761D9D6F3600A1B066 /* level19.json */,
+				02A58C771D9D6F3600A1B066 /* level20.json */,
+				02A58C781D9D6F3600A1B066 /* level21.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -549,7 +597,7 @@
 				TargetAttributes = {
 					02151E091D25B4670003C4E5 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = ZQR2998NRQ;
+						DevelopmentTeam = 5G89KSC622;
 					};
 					02151E211D25B4670003C4E5 = {
 						CreatedOnToolsVersion = 7.3;
@@ -581,14 +629,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02A58C7E1D9D6F3600A1B066 /* level13.json in Resources */,
 				02663DAE1D8EEBEA00EBDE46 /* level5.json in Resources */,
+				02A58C831D9D6F3600A1B066 /* level18.json in Resources */,
+				02A58C691D9D6F2800A1B066 /* level6.json in Resources */,
+				02A58C7D1D9D6F3600A1B066 /* level12.json in Resources */,
+				02A58C7C1D9D6F3600A1B066 /* level11.json in Resources */,
 				02151E1C1D25B4670003C4E5 /* LaunchScreen.storyboard in Resources */,
 				02663DA81D8EEBD300EBDE46 /* level2.json in Resources */,
+				02A58C7A1D9D6F3600A1B066 /* level9.json in Resources */,
 				02151E191D25B4670003C4E5 /* Assets.xcassets in Resources */,
 				02D4A3011D27092000A319B4 /* level1.json in Resources */,
+				02A58C6A1D9D6F2800A1B066 /* level7.json in Resources */,
+				02A58C7F1D9D6F3600A1B066 /* level14.json in Resources */,
+				02A58C851D9D6F3600A1B066 /* level20.json in Resources */,
+				02A58C821D9D6F3600A1B066 /* level17.json in Resources */,
+				02A58C7B1D9D6F3600A1B066 /* level10.json in Resources */,
 				02663DAA1D8EEBE200EBDE46 /* level3.json in Resources */,
+				02A58C801D9D6F3600A1B066 /* level15.json in Resources */,
+				02A58C791D9D6F3600A1B066 /* level8.json in Resources */,
+				02A58C841D9D6F3600A1B066 /* level19.json in Resources */,
 				02151E171D25B4670003C4E5 /* Main.storyboard in Resources */,
 				02663DAC1D8EEBE700EBDE46 /* level4.json in Resources */,
+				02A58C811D9D6F3600A1B066 /* level16.json in Resources */,
+				02A58C861D9D6F3600A1B066 /* level21.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,11 +863,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Sokoban/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cappsoft.Sokoban;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -812,11 +878,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Sokoban/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cappsoft.Sokoban;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

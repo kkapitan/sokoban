@@ -21,6 +21,7 @@ class LevelDataProvider: Provider<LevelData> {
                 .flatMap { $0.componentsSeparatedByString(".").first }
             
             let levels = levelNames.flatMap { levelReader.readLevelData($0) }
+                .sort { $0.id < $1.id }
             
              completion?(success: true, items: levels, error: nil)
         } catch (let e) {

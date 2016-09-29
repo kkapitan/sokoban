@@ -1,13 +1,19 @@
 {
 "id": 2,
 "marks": [4,8],
-"width": 7,
-"height": 5,
+"width": 19,
+"height": 11,
 "board": [
-        "wwwwwww",
-        "webfeew",
-        "wheebfw",
-        "weeewww",
-        "wwwwwww"
+        "xxxxwwwwwxxxxxxxxxx",
+        "xxxxweeewxxxxxxxxxx",
+        "xxxxwbeewxxxxxxxxxx",
+        "xxwwweebwwxxxxxxxxx",
+        "xxweebebewxxxxxxxxx",
+        "wwwewewwewxxxwwwwww",
+        "weeewewwewwwwweeffw",
+        "webeebeeeeeeeeeeffw",
+        "wwwwwewwwewhwweeffw",
+        "xxxxweeeeewwwwwwwww",
+        "xxxxwwwwwwwxxxxxxxx"
         ]
 }

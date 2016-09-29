@@ -10,11 +10,22 @@ import UIKit
 
 class LevelViewController : UIViewController {
     var levelData: LevelData!
+    weak var gameViewController: GameViewController!
     
     let embedGameControllerSegue = "GameControllerEmbedSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @IBAction func backToMenuAction(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func resetLevelAction(sender: AnyObject) {
+        gameViewController.view.removeFromSuperview()
+        gameViewController.removeFromParentViewController()
+        performSegueWithIdentifier(embedGameControllerSegue, sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -26,6 +37,7 @@ class LevelViewController : UIViewController {
         gameViewController.levelData = levelData
         gameViewController.gameViewModel.delegate = self
         
+        self.gameViewController = gameViewController
     }
 }
 
